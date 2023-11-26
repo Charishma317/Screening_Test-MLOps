@@ -1,0 +1,21 @@
+<!-- templates/user_detail.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>User Profile</h2>
+  <img src="{{ user.profile_picture.url }}" alt="{{ user.name }}">
+
+  <h3>{{ user.name }}</h3>
+  <p>Designation: {{ user.designation }}</p>
+  <p>Company: {{ user.company }}</p>
+
+  <h4>About</h4>
+  <p>{{ user.about }}</p>
+
+  <h4>Areas of Interest</h4>
+  <ul>
+    {% for interest in user.interests.all %}
+      <li>{{ interest.name }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
